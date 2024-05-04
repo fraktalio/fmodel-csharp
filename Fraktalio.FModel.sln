@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{92A047C2-3835-42E8-A055-3F94DE935E8F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		nuget.config = nuget.config
+		LICENSE = LICENSE
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		README.md = README.md
+		Build.ps1 = Build.ps1
+		Push.ps1 = Push.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DF314C79-FDC8-4210-98D7-ED7AB13848D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fraktalio.FModel", "src\Fraktalio.FModel\Fraktalio.FModel.csproj", "{419C4D5B-DFB7-4387-90A0-97D5DBCDB04D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fraktalio.FModel.Contracts", "src\Fraktalio.FModel.Contracts\Fraktalio.FModel.Contracts.csproj", "{262EE234-6FFF-4C7D-9D29-FE133D3BBF46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8B68360D-A2C7-416C-BFFA-D0C063E231FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fraktalio.FModel.Tests", "test\Fraktalio.FModel.Tests\Fraktalio.FModel.Tests.csproj", "{445D6510-F66E-4805-B9C8-B03E3A3C0571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{57E3D8FE-526A-4BB0-BDB2-0E97CAEEC06A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{97650C4C-B1E0-4E17-AB33-C9D82056CE51}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{419C4D5B-DFB7-4387-90A0-97D5DBCDB04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{419C4D5B-DFB7-4387-90A0-97D5DBCDB04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{419C4D5B-DFB7-4387-90A0-97D5DBCDB04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{419C4D5B-DFB7-4387-90A0-97D5DBCDB04D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{262EE234-6FFF-4C7D-9D29-FE133D3BBF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262EE234-6FFF-4C7D-9D29-FE133D3BBF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262EE234-6FFF-4C7D-9D29-FE133D3BBF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262EE234-6FFF-4C7D-9D29-FE133D3BBF46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{445D6510-F66E-4805-B9C8-B03E3A3C0571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{445D6510-F66E-4805-B9C8-B03E3A3C0571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{445D6510-F66E-4805-B9C8-B03E3A3C0571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{445D6510-F66E-4805-B9C8-B03E3A3C0571}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{419C4D5B-DFB7-4387-90A0-97D5DBCDB04D} = {DF314C79-FDC8-4210-98D7-ED7AB13848D2}
+		{262EE234-6FFF-4C7D-9D29-FE133D3BBF46} = {DF314C79-FDC8-4210-98D7-ED7AB13848D2}
+		{445D6510-F66E-4805-B9C8-B03E3A3C0571} = {8B68360D-A2C7-416C-BFFA-D0C063E231FE}
+		{97650C4C-B1E0-4E17-AB33-C9D82056CE51} = {57E3D8FE-526A-4BB0-BDB2-0E97CAEEC06A}
+	EndGlobalSection
+EndGlobal
