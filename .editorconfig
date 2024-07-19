@@ -4,12 +4,6 @@ root = true
 
 ; For more visit http://editorconfig.org.
 
-; Choose between lf or rf on "end_of_line" property
-[*.proto]
-indent_style = tab
-indent_size = tab
-tab_width = 4
-
 [*.{asax,ascx,aspx,cs,cshtml,css,htm,html,js,jsx,master,razor,skin,ts,tsx,vb,xaml,xamlx,xoml}]
 indent_style = space
 indent_size = 4
@@ -74,3 +68,7 @@ dotnet_style_qualification_for_field = false:hint
 dotnet_style_qualification_for_method = false:hint
 dotnet_style_qualification_for_property = false:hint
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:hint
+
+[*.cs]
+dotnet_diagnostic.CA1715.severity = none # Identifiers should have correct prefix
+dotnet_diagnostic.CA1707.severity = none # Identifiers should not contain underscores

@@ -16,7 +16,7 @@ namespace Fraktalio.FModel;
 /// <typeparam name="Si">Input State type</typeparam>
 /// <typeparam name="So">Output State type</typeparam>
 /// <typeparam name="E">Event type</typeparam>
-internal class InternalView<Si, So, E>(Func<Si, E, So> evolve, So initialState)
+internal sealed class InternalView<Si, So, E>(Func<Si, E, So> evolve, So initialState)
 {
     internal Func<Si, E, So> Evolve { get; } = evolve;
     internal So InitialState { get; } = initialState;
@@ -77,6 +77,4 @@ internal class InternalView<Si, So, E>(Func<Si, E, So> evolve, So initialState)
 
     internal InternalView<Si, Tuple<So, Son>, E> ProductOnState<Son>(InternalView<Si, Son, E> fb) =>
         ApplyOnState(fb.MapOnState(b => new Func<So, Tuple<So, Son>>(a => new Tuple<So, Son>(a, b))));
-    
-    
 }

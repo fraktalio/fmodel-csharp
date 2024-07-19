@@ -26,7 +26,8 @@ internal static class InternalDeciderExtensions
     /// <typeparam name="Ei_SUPER">Super type of the Ei and Ei2 types</typeparam>
     /// <typeparam name="Eo_SUPER">super type of the Eo and Eo2 types</typeparam>
     /// <returns></returns>
-    internal static InternalDecider<C_SUPER?, Tuple<Si, Si2>, Tuple<So, So2>, Ei_SUPER, Eo_SUPER?> Combine<C, Si, So, Ei,
+    internal static InternalDecider<C_SUPER?, Tuple<Si, Si2>, Tuple<So, So2>, Ei_SUPER, Eo_SUPER?> Combine<C, Si, So,
+        Ei,
         Eo, C2, Si2, So2, Ei2, Eo2, C_SUPER, Ei_SUPER, Eo_SUPER>(
         this InternalDecider<C?, Si, So, Ei?, Eo?> x,
         InternalDecider<C2?, Si2, So2, Ei2?, Eo2?> y)
