@@ -13,7 +13,7 @@
 /// <typeparam name="So">Output State type</typeparam>
 /// <typeparam name="Ei">Input Event type</typeparam>
 /// <typeparam name="Eo">Output Event type</typeparam>
-internal class InternalDecider<C, Si, So, Ei, Eo>
+internal sealed class InternalDecider<C, Si, So, Ei, Eo>
 {
     /// <summary>
     /// [InternalDecider] is a datatype that represents the main decision-making algorithm.

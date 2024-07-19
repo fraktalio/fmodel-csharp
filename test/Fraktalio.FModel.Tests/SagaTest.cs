@@ -1,4 +1,5 @@
-﻿using Fraktalio.FModel.Tests.Examples.Numbers;
+﻿using System.Globalization;
+using Fraktalio.FModel.Tests.Examples.Numbers;
 using Fraktalio.FModel.Tests.Extensions;
 using OddNumberCommand = Fraktalio.FModel.Tests.Examples.Numbers.NumberCommand.OddNumberCommand;
 using EvenNumberCommand = Fraktalio.FModel.Tests.Examples.Numbers.NumberCommand.EvenNumberCommand;
@@ -68,7 +69,7 @@ public class SagaTest
     [Test]
     public void MapLeftOnActionResult() =>
         _evenSaga.MapLeftOnActionResult<int>(arn =>
-                new EvenNumberAdded(Description.Create(arn.ToString()), Number.Create(arn)))
+                new EvenNumberAdded(Description.Create(arn.ToString(CultureInfo.InvariantCulture)), Number.Create(arn)))
             .WhenActionResult(
                 2)
             .ExpectActions(

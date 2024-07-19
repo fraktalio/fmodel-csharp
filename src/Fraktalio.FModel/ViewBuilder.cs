@@ -1,9 +1,11 @@
 namespace Fraktalio.FModel;
 
-internal class ViewBuilder<S, E>
+internal sealed class ViewBuilder<S, E>
 {
     private Func<S, E, S> Evolve { get; set; } = (s, _) => s;
-    private Func<S> InitialState { get; set; } = () => throw new Exception("Initial State is not initialized");
+
+    private Func<S> InitialState { get; set; } =
+        () => throw new InvalidOperationException("Initial State is not initialized");
 
     public void SetEvolve(Func<S, E, S> value) => Evolve = value;
 

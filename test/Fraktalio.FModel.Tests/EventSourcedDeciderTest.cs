@@ -1,4 +1,5 @@
-﻿using Fraktalio.FModel.Tests.Examples.Numbers;
+﻿using System.Globalization;
+using Fraktalio.FModel.Tests.Examples.Numbers;
 using Fraktalio.FModel.Tests.Examples.Numbers.Even;
 using Fraktalio.FModel.Tests.Examples.Numbers.Odd;
 using Fraktalio.FModel.Tests.Extensions;
@@ -51,7 +52,8 @@ public class EventSourcedDeciderTest
     [Test]
     public void GivenEvents_LeftMapOverCommand_AddEvenNumber() =>
         _evenDecider.MapLeftOnCommand<int>(cn =>
-                new EvenNumberCommand.AddEvenNumber(Description.Create(cn.ToString()), Number.Create(cn)))
+                new EvenNumberCommand.AddEvenNumber(Description.Create(cn.ToString(CultureInfo.InvariantCulture)),
+                    Number.Create(cn)))
             .GivenEvents([],
                 () => 2)
             .ThenEvents([new EvenNumberAdded(Description.Create("2"), Number.Create(2))]);
@@ -59,7 +61,8 @@ public class EventSourcedDeciderTest
     [Test]
     public void GivenState_LeftMapOverCommand_AddEvenNumber() =>
         _evenDecider.MapLeftOnCommand<int>(cn =>
-                new EvenNumberCommand.AddEvenNumber(Description.Create(cn.ToString()), Number.Create(cn)))
+                new EvenNumberCommand.AddEvenNumber(Description.Create(cn.ToString(CultureInfo.InvariantCulture)),
+                    Number.Create(cn)))
             .GivenState(null,
                 () => 2)
             .ThenState(new EvenNumberState(Description.Create("Initial state + 2"), Number.Create(2)));
@@ -68,31 +71,34 @@ public class EventSourcedDeciderTest
     //TODO ID: check if this is correct  
     public void GivenEmptyEvents_DimapOverEventParameter_AddEvenNumber() =>
         _evenDecider.DimapOnEvent<EvenNumberEvent?>(
-                fl => fl != null ? fl with { Value = fl.Value} : null,
+                fl => fl != null ? fl with { Value = fl.Value } : null,
                 fr => fr != null
-                    ? new EvenNumberAdded(Description.Create(fr.Value.Value.ToString()), Number.Create(fr.Value))
+                    ? new EvenNumberAdded(Description.Create(fr.Value.Value.ToString(CultureInfo.InvariantCulture)),
+                        Number.Create(fr.Value))
                     : null)
             .GivenEvents([], () => new EvenNumberCommand.AddEvenNumber(Description.Create("2"), Number.Create(2)))
             .ThenEvents([new EvenNumberAdded(Description.Create("2"), Number.Create(2))]);
-    
+
     [Test]
     //TODO ID: check if this is correct  
     public void GivenEmptyEvents_DimapOverStateParameter_AddEvenNumber() =>
         _evenDecider.DimapOnState<EvenNumberState>(
-                fl => fl with { Value = fl.Value},
-                fr => 
-                     new EvenNumberState(Description.Create(fr.Value.Value.ToString()), Number.Create(fr.Value))
-             )
+                fl => fl with { Value = fl.Value },
+                fr =>
+                    new EvenNumberState(Description.Create(fr.Value.Value.ToString(CultureInfo.InvariantCulture)),
+                        Number.Create(fr.Value))
+            )
             .GivenEvents([], () => new EvenNumberCommand.AddEvenNumber(Description.Create("2"), Number.Create(2)))
             .ThenEvents([new EvenNumberAdded(Description.Create("2"), Number.Create(2))]);
-    
+
     [Test]
     //TODO ID: check if this is correct  
     public void GivenEmptyState_DimapOverStateParameter_AddEvenNumber() =>
         _evenDecider.DimapOnState<EvenNumberState>(
-                fl => fl with { Value = fl.Value},
-                fr => 
-                    new EvenNumberState(Description.Create(fr.Value.Value.ToString()), Number.Create(fr.Value))
+                fl => fl with { Value = fl.Value },
+                fr =>
+                    new EvenNumberState(Description.Create(fr.Value.Value.ToString(CultureInfo.InvariantCulture)),
+                        Number.Create(fr.Value))
             )
             .GivenState(null, () => new EvenNumberCommand.AddEvenNumber(Description.Create("2"), Number.Create(2)))
             .ThenState(new EvenNumberState(Description.Create("2"), Number.Create(2)));

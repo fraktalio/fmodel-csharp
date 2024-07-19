@@ -1,3 +1,4 @@
+using System.Globalization;
 using Fraktalio.FModel.Tests.Examples.Numbers;
 using Fraktalio.FModel.Tests.Examples.Numbers.Even;
 using Fraktalio.FModel.Tests.Examples.Numbers.Odd;
@@ -30,7 +31,8 @@ public class ViewTest
     public void MapLefOnEvent_EvenNumbersAdded()
     {
         var mappedEvenView = _evenView.MapLeftOnEvent<int>(number =>
-            new EvenNumberAdded(Description.Create(number.ToString()), Number.Create(number)));
+            new EvenNumberAdded(Description.Create(number.ToString(CultureInfo.InvariantCulture)),
+                Number.Create(number)));
         mappedEvenView.GivenEvents([
                 2,
                 4
@@ -43,7 +45,8 @@ public class ViewTest
     {
         var mappedEvenView =
             _evenView.DimapOnState(fl =>
-                    new EvenNumberState(Description.Create(fl.ToString()), Number.Create(fl)),
+                    new EvenNumberState(Description.Create(fl.ToString(CultureInfo.InvariantCulture)),
+                        Number.Create(fl)),
                 fr => fr.Value.Value);
 
         mappedEvenView.GivenEvents([

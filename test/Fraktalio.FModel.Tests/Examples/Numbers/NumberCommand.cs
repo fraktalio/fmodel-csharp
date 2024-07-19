@@ -16,7 +16,8 @@ public abstract class NumberCommand(Description description, Number number)
 
     public abstract class OddNumberCommand(Description description, Number number) : NumberCommand(description, number)
     {
-        public sealed class AddOddNumber(Description description, Number number) : OddNumberCommand(description, number);
+        public sealed class AddOddNumber(Description description, Number number)
+            : OddNumberCommand(description, number);
 
         public sealed class SubtractOddNumber(Description description, Number number)
             : OddNumberCommand(description, number);
