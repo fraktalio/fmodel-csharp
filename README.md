@@ -166,11 +166,11 @@ Notice that `View` implements an interface `IView` to communicate the contract.
 
 #### Contravariant
 
-- `View<S, En> MapLeftOnEvent<En>(Func<En, E> f) => new InternalView<S, S, E>(Evolve, InitialState).MapLeftOnEvent(f).AsView();`
+- `View<S, En> MapLeftOnEvent<En>(Func<En, E> f)`
 
 #### Profunctor (Contravariant and Covariant)
 
-- `View<Sn, E> DimapOnState<Sn>(Func<Sn, S> fl, Func<S, Sn> fr) => new InternalView<S, S, E>(Evolve, InitialState).DimapOnState(fl, fr).AsView();`
+- `View<Sn, E> DimapOnState<Sn>(Func<Sn, S> fl, Func<S, Sn> fr)`
 
 #### *Commutative* Monoid
 
@@ -222,11 +222,11 @@ Notice that `Saga` implements an interface `ISaga` to communicate the contract.
 
 #### Contravariant
 
-- `Saga<ARn, A> MapLeftOnActionResult<ARn>(Func<ARn, AR> f) => new(arn => react(f(arn)));`
+- `Saga<ARn, A> MapLeftOnActionResult<ARn>(Func<ARn, AR> f)`
 
 #### Covariant
 
-- `Saga<AR, An> MapOnAction<An>(Func<A, An> f) => new(ar => react(ar).Select(f));`
+- `Saga<AR, An> MapOnAction<An>(Func<A, An> f)`
 
 #### Monoid
 
