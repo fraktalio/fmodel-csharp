@@ -22,7 +22,7 @@ jobs:
       - name: Build and Test
         run: ./Build.ps1
         shell: pwsh
-      - name: Push to MyGet
+      - name: Push to NuGet
         env:
           NUGET_URL: https://api.nuget.org/v3/index.json
           NUGET_API_KEY: ${{ secrets.NUGET_FRAKTALIO_CI_API_KEY }}
